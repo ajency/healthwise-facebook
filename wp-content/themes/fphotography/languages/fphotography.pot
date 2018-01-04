@@ -1,0 +1,236 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: fPhotography Theme\n"
+"POT-Creation-Date: 2016-03-31 21:33+0200\n"
+"PO-Revision-Date: 2016-03-31 21:33+0200\n"
+"Last-Translator: \n"
+"Language-Team: Tishonator Team <info@tishonator.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../"
+"fphotography\n"
+
+#: ../404.php:20
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: ../404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: ../search.php:18
+#, php-format
+msgid "You searched for \"%s\". Here are the results:"
+msgstr ""
+
+#: ../searchform.php:19
+msgid "Search..."
+msgstr ""
+
+#: ../content-none.php:17
+msgid "Oh no! Article not found! 404 error!"
+msgstr ""
+
+#: ../content-none.php:21
+msgid "No Results Found!"
+msgstr ""
+
+#: ../content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ../single.php:32
+msgid "Pages:"
+msgstr ""
+
+#: ../footer.php:26
+msgid "fPhotography Theme"
+msgstr ""
+
+#: ../footer.php:27
+msgid "WordPress"
+msgstr ""
+
+#: ../comments.php:53
+#: ../content-page.php:27
+#: ../content.php:86
+msgid "Comments are closed."
+msgstr ""
+
+#: ../content-page.php:27
+#: ../content.php:86
+msgid "No Comments"
+msgstr ""
+
+#: ../content-page.php:27
+#: ../content.php:86
+msgid "1 Comment"
+msgstr ""
+
+#: ../content-page.php:27
+#: ../content.php:86
+msgid "% Comments"
+msgstr ""
+
+#: ../content-page.php:32
+#: ../content.php:109
+msgid "Edit"
+msgstr ""
+
+#: ../content.php:95
+msgid "Categories:"
+msgstr ""
+
+#: ../content.php:102
+msgid "Tags:"
+msgstr ""
+
+#: ../functions.php:51
+msgid "Primary Menu"
+msgstr ""
+
+#: ../functions.php:169
+msgid "Read More"
+msgstr ""
+
+#: ../functions.php:223
+msgid "Sidebar Widget Area"
+msgstr ""
+
+#: ../functions.php:225
+msgid "The sidebar widget area"
+msgstr ""
+
+#: ../functions.php:246
+#: ../functions.php:310
+#: ../functions.php:346
+#: ../functions.php:382
+#: ../functions.php:418
+#: ../functions.php:454
+msgid ""
+"<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua.</p>"
+msgstr ""
+
+#: ../functions.php:254
+#, php-format
+msgid "Image %s"
+msgstr ""
+
+#: ../functions.php:287
+msgid "Read More..."
+msgstr ""
+
+#: ../functions.php:301
+msgid "Slider"
+msgstr ""
+
+#: ../functions.php:317
+msgid "Slide #1 Content"
+msgstr ""
+
+#: ../functions.php:335
+msgid "Slide 1 Image (Recommended Size: 240px x 240px)"
+msgstr ""
+
+#: ../functions.php:353
+msgid "Slide #2 Content"
+msgstr ""
+
+#: ../functions.php:371
+msgid "Slide 2 Image (Recommended Size: 240px x 240px)"
+msgstr ""
+
+#: ../functions.php:389
+msgid "Slide #3 Content"
+msgstr ""
+
+#: ../functions.php:407
+msgid "Slide 3 Image (Recommended Size: 240px x 240px)"
+msgstr ""
+
+#: ../functions.php:425
+msgid "Slide #4 Content"
+msgstr ""
+
+#: ../functions.php:443
+msgid "Slide 4 Image (Recommended Size: 240px x 240px)"
+msgstr ""
+
+#: ../functions.php:461
+msgid "Slide #5 Content"
+msgstr ""
+
+#: ../functions.php:479
+msgid "Slide 5 Image (Recommended Size: 240px x 240px)"
+msgstr ""
+
+#: ../functions.php:492
+msgid "Footer"
+msgstr ""
+
+#: ../functions.php:508
+msgid "Copyright Text"
+msgstr ""
+
+#: functions.php:255
+msgid "Footer Column #1"
+msgstr ""
+
+#: functions.php:257
+msgid "The Footer Column #1 widget area"
+msgstr ""
+
+#: functions.php:266
+msgid "Footer Column #2"
+msgstr ""
+
+#: functions.php:268
+msgid "The Footer Column #2 widget area"
+msgstr ""
+
+#: functions.php:277
+msgid "Footer Column #3"
+msgstr ""
+
+#: functions.php:279
+msgid "The Footer Column #3 widget area"
+msgstr ""
+
+#: sidebar-footer.php:26
+msgid "Footer Col Widget 1"
+msgstr ""
+
+#: sidebar-footer.php:33
+msgid ""
+"This is first footer widget area. To customize it, please navigate to Admin "
+"Panel -> Appearance -> Widgets and add widgets to Footer Column #1."
+msgstr ""
+
+#: sidebar-footer.php:50
+msgid "Footer Col Widget 2"
+msgstr ""
+
+#: sidebar-footer.php:57
+msgid ""
+"This is second footer widget area. To customize it, please navigate to Admin "
+"Panel -> Appearance -> Widgets and add widgets to Footer Column #2."
+msgstr ""
+
+#: sidebar-footer.php:74
+msgid "Footer Col Widget 3"
+msgstr ""
+
+#: sidebar-footer.php:81
+msgid ""
+"This is third footer widget area. To customize it, please navigate to Admin "
+"Panel -> Appearance -> Widgets and add widgets to Footer Column #3."
+msgstr ""
