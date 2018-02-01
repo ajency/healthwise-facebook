@@ -1,22 +1,3 @@
-<style>
-.btn1{
- background-color: black; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
-.btn1:hover{
-	opacity: 0.6;
-}
-</style>
 <?php
 defined('ABSPATH') or die("Cheating........Uh!!");
 /**
@@ -44,23 +25,23 @@ function the_champ_login_button($widget = false){
 			$html .= '<div class="the_champ_login_container"><ul class="the_champ_login_ul">';
 			if(isset($theChampLoginOptions['providers']) && is_array($theChampLoginOptions['providers']) && count($theChampLoginOptions['providers']) > 0){
 				foreach($theChampLoginOptions['providers'] as $provider){
-					$html .= '<li><i class="btn1" ';
+					$html .= '<li><i ';
 					// id
 					if( $provider == 'google' ){
 						$html .= 'id="theChamp'. ucfirst($provider) .'Button" ';
 					}
 					// class
-					$html .= 'class=" '. ucfirst($provider) .'Background theChamp'. ucfirst($provider) .'Login" ';
+					$html .= 'class="theChampLogin theChamp'. ucfirst($provider) .'Background theChamp'. ucfirst($provider) .'Login" ';
 					$html .= 'alt="Login with ';
 					$html .= ucfirst($provider);
-					$html .= '" title="Pledge with ';
+					$html .= '" title="Login with ';
 					$html .= ucfirst($provider);
 					if(current_filter() == 'comment_form_top' || current_filter() == 'comment_form_must_log_in_after'){
 						$html .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this)" >';
 					}else{
 						$html .= '" onclick="theChampInitiateLogin(this)" >';
 					}
-					$html .= '<div>I PLEDGE</div></i></li>';
+					$html .= '<ss style="display:block" class="theChampLoginSvg theChamp'. ucfirst($provider) .'LoginSvg"></ss></i></li>';
 				}
 			}
 			$html .= '</ul></div>';
@@ -300,15 +281,10 @@ function the_champ_create_user($profileData, $verification = false){
 		}
 		// hook - user successfully created
 		do_action('the_champ_user_successfully_created', $userId, $userdata, $profileData);
-		//do_action('redirect_url');
 		return $userId;
 	}
 	return false;
 }
-
-
-
-
 
 /**
  * Replace default avatar with social avatar
