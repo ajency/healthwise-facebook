@@ -1,7 +1,8 @@
 <?php /* Template Name: pledge-template */ ?>
 <style type="text/css">
 	.content-area{
-	float:right;
+		
+	/*float:right;*/
 	border:1px solid black;
 	padding : 1%;
 	}
@@ -11,6 +12,7 @@
 	}
 </style>
 <div class="wrap">
+
 	<?php 
 	global $page;
 
@@ -22,7 +24,7 @@
 		$post_id=$_SESSION['pledge'];
 		//check if user exists
 		$check = $wpdb->get_results(
-		"SELECT user_id,post_id FROM pledged_users
+		"SELECT user_id,post_id FROM wp_pledged_users
 		WHERE user_id = ".$user." AND post_id = ".$post_id
 		);
 		if ($check!=NULL)
@@ -49,7 +51,7 @@
 			echo( '<h2 class="entry-title"><u>' . $post->post_title.'</u></h2>' );
 			echo( '<h6>' . $post->post_content.'</h6>' );
 				if ($user != 0 && $post_id!=0) {
-				$wpdb->insert( 'pledged_users',array(
+				$wpdb->insert( 'wp_pledged_users',array(
 				'user_id' => $user,
 				'post_id' => $post_id)
 				,array('%d','%d'));
@@ -63,6 +65,7 @@
 			}
 
 		?>
+				<?php echo "</div>" ?>
 		<?php
 	} 
 	else
@@ -71,9 +74,11 @@
 
 	<div id="pledge-container">
 
+
 	</div>
 	<div id="login_container" class="content-area">
 		<main id="main" class="site-main" role="main">
+
 			<?php $loop = new WP_Query( array( 	'post_type' => 'pledge',
 			'posts_per_page' => 1 ,
 			'paged' => get_query_var('paged') ? get_query_var('paged') : 1) ); 
