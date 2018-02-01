@@ -19,10 +19,14 @@ function create_post_type() {
     array(
       'labels' => array(
         'name' => __( 'pledges' ),
-        'singular_name' => __( 'pledge' )
+        'singular_name' => __( 'pledge' ),
+    'featured_image'        => __( 'Featured Image', 'text_domain' ),
+
       ),
       'public' => true,
       'has_archive' => true,
+      'taxonomies'  => array( 'category' ),
+      'supports' => array('title', 'editor', 'thumbnail')
     )
   );
 }
@@ -181,5 +185,31 @@ function change_login_button($theChampLoginOptions, $widget)
     $html .= '</div><div style="clear:both; margin-bottom: 6px"></div>';
     }
     return $html;
+}
+
+
+
+
+//sidebar
+add_action( 'widgets_init', 'my_register_sidebars' );
+
+function my_register_sidebars() {
+
+/* Register dynamic sidebar 'new_sidebar' */
+
+    register_sidebar(
+        array(
+        'id' => 'new_sidebar',
+        'name' => __( 'New Sidebar' ),
+        'description' => __( 'A short description of the sidebar.' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>'
+    )
+    );
+
+/* Repeat the code pattern above for additional sidebars. */
+
 }
 ?>
