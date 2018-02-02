@@ -30,20 +30,22 @@
 		if ($check!=NULL)
 			{
 			// user exists
-			echo "<h5>Seems like you have already pledged to</h5>";
-			$post=get_post($post_id);
-			echo( '<h2 class="entry-title"><u>' . $post->post_title.'</u></h2>' );
-			echo( '<h6>' . $post->post_content.'</h6>' );
+				$post=get_post($post_id);
 			echo "<div class='pledge_image'>";
 			$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> <img src="<?php echo $url ?>" />
-			<?php echo "</div>" ?>
-			<?php
+			<?php echo "</div>";
+			echo "<h5>Seems like you have already pledged to</h5>";
+			echo( '<h2 class="entry-title"><u>' . $post->post_title.'</u></h2>' );
+			echo( '<h6>' . $post->post_content.'</h6>' );
 			echo do_shortcode('[TheChamp-Sharing]'); 
 			}
 		else
 			{
 			// user does not exist
 			//insert user in database
+			echo "<div class='pledge_image'>";
+			$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> <img src="<?php echo $url ?>" />
+			<?php echo "</div>";
 			echo "<h5>Great! you have pledged to</h5>";
 			$post=get_post($post_id);
 			//****
@@ -57,10 +59,6 @@
 				,array('%d','%d'));
 				$wpdb->show_errors();
 				}
-				echo "<div class='pledge_image'>";
-				$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> <img src="<?php echo $url ?>" />
-				<?php echo "</div>" ?>
-			<?php
 			echo do_shortcode('[TheChamp-Sharing]'); 
 			}
 
@@ -85,8 +83,14 @@
 			?>
 
 			<?php
-			while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<?php echo( '<h2 class="entry-title">' . the_title_attribute( 'echo=0' ).'</h2>' ); ?>
+			while ( $loop->have_posts() ) : $loop->the_post(); 
+				echo "<div class='pledge_image'>";
+				the_post_thumbnail('thumbnail');
+				echo "</div>";
+				echo( '<h2 class="entry-title">' . the_title_attribute( 'echo=0' ).'</h2>' ); 
+				echo( '<h2 class="entry-title">' . the_content( 'echo=0' ).'</h2>' ); 
+
+				?>
 				<div id="login">
 
 					<!-- function on login -->
