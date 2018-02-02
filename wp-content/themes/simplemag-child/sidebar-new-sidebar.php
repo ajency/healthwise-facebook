@@ -24,7 +24,7 @@
 		$post_id=$_SESSION['pledge'];
 		//check if user exists
 		$check = $wpdb->get_results(
-		"SELECT user_id,post_id FROM wp_pledged_users
+		"SELECT user_id,post_id FROM pledged_users
 		WHERE user_id = ".$user." AND post_id = ".$post_id
 		);
 		if ($check!=NULL)
@@ -51,7 +51,7 @@
 			echo( '<h2 class="entry-title"><u>' . $post->post_title.'</u></h2>' );
 			echo( '<h6>' . $post->post_content.'</h6>' );
 				if ($user != 0 && $post_id!=0) {
-				$wpdb->insert( 'wp_pledged_users',array(
+				$wpdb->insert( 'pledged_users',array(
 				'user_id' => $user,
 				'post_id' => $post_id)
 				,array('%d','%d'));
