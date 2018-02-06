@@ -14,7 +14,7 @@ get_header();
 <div class="wrap" onload="hello()">
 <?php 
 global $page;
-
+/*
 	if(is_user_logged_in())
 	{
 		echo '<div id="login_container" class="content-area">';
@@ -59,7 +59,7 @@ global $page;
 <?php
 	} 
 	else
-	{
+	{*/
 ?>
 
 		<div id="pledge-container">

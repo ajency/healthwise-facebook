@@ -15,59 +15,58 @@
 
 	<?php 
 	global $page;
+	wp_reset_postdata();
+	if(is_user_logged_in() || !is_front_page())
+	{
 
-	if(is_user_logged_in())
-		{
-		echo '<div id="login_container" class="content-area">';
-		$current_user = wp_get_current_user();
-		$user=$current_user->ID;
-		$post_id=$_SESSION['pledge'];
-		//check if user exists
-		$check = $wpdb->get_results(
-		"SELECT user_id,post_id FROM pledged_users
-		WHERE user_id = ".$user." AND post_id = ".$post_id
+
+		echo "<img src='wp-content/themes/simplemag-child/image.png' width='55px'>";
+		$post_id=get_the_ID();
+		echo '<span>';
+
+		echo "<span id='links'>";
+		$count= $wpdb->get_var(
+		"SELECT count(post_id) FROM pledged_users
+		WHERE post_id = ".$post_id
 		);
-		if ($check!=NULL)
-			{
-			// user exists
-				$post=get_post($post_id);
-			echo "<div class='pledge_image'>";
-			$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> <img src="<?php echo $url ?>" />
-			<?php echo "</div>";
-			echo "<h5>Seems like you have already pledged to</h5>";
-			echo( '<h2 class="entry-title"><u>' . $post->post_title.'</u></h2>' );
-			echo( '<h6>' . $post->post_content.'</h6>' );
-			echo do_shortcode('[TheChamp-Sharing]'); 
-			}
-		else
-			{
-			// user does not exist
-			//insert user in database
-			echo "<div class='pledge_image'>";
-			$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> <img src="<?php echo $url ?>" />
-			<?php echo "</div>";
-			echo "<h5>Great! you have pledged to</h5>";
-			$post=get_post($post_id);
-			//****
-			//echo "null ".$post;
-			echo( '<h2 class="entry-title"><u>' . $post->post_title.'</u></h2>' );
-			echo( '<h6>' . $post->post_content.'</h6>' );
-				if ($user != 0 && $post_id!=0) {
-				$wpdb->insert( 'pledged_users',array(
-				'user_id' => $user,
-				'post_id' => $post_id)
-				,array('%d','%d'));
-				$wpdb->show_errors();
+		echo $count;
+		echo "</span>";
+		echo "<br>Have already taken pledge";
+		echo "</span>";
+		if(!is_user_logged_in())
+            {
+               echo do_shortcode('[TheChamp-Login]');
+            }
+            else
+            {
+		// adding data
+			$current_user = wp_get_current_user();
+			$user=$current_user->ID;
+			//check if user exists
+			$check = $wpdb->get_results(
+			"SELECT user_id,post_id FROM pledged_users
+			WHERE user_id = ".$user." AND post_id = ".$post_id
+			);
+			if ($check==NULL)
+				{
+				// user does not exist
+				//insert user in database
+					if ($user != 0 && $post_id!=0) {
+						$wpdb->insert( 'pledged_users',array(
+						'user_id' => $user,
+						'post_id' => $post_id)
+						,array('%d','%d'));
+						$wpdb->show_errors();
+					}
 				}
-			echo do_shortcode('[TheChamp-Sharing]'); 
+		//ending data
 			}
 
-		?>
-				<?php echo "</div>" ?>
-		<?php
+
 	} 
 	else
 	{
+
 	?>
 
 	<div id="pledge-container">
@@ -88,9 +87,11 @@
 				the_post_thumbnail('thumbnail');
 				echo "</div>";
 				echo( '<h2 class="entry-title">' . the_title_attribute( 'echo=0' ).'</h2>' ); 
-				echo( '<h2 class="entry-title">' . the_content( 'echo=0' ).'</h2>' ); 
-
+				//echo( '<h2 class="entry-title">' . the_content( 'echo=0' ).'</h2>' ); 
+				$excerpt=get_the_excerpt();
+				echo $excerpt;
 				?>
+				<a href=<?php the_permalink(); ?>>Read more</a>
 				<div id="login">
 
 					<!-- function on login -->
@@ -104,7 +105,7 @@
 
 					/*the_content();*/ 
 					//$x=$post;
-					echo do_shortcode('[TheChamp-Login]'); 
+					 echo do_shortcode('[TheChamp-Login]'); 
 					/*the_content();*/
 					//echo the_champ_login_shortcode($params,null);
 					?>

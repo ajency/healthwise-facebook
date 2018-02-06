@@ -5,8 +5,20 @@
  * @package SimpleMag
  * @since 	SimpleMag 1.1
 **/
+//session to get custom post id
 session_start();
-get_header(); ?>
+//check if user is logged in and if so show post details 
+if(is_user_logged_in())
+		{
+			$post_id=$_SESSION['pledge'];
+			$session_post=get_post($post_id);		
+			echo do_shortcode('[TheChamp-Sharing]'); 
+			$url='http://localhost:8080/healthwise-facebook/?pledge='.$session_post->post_name;
+			wp_redirect( $url );
+			exit;
+		}
+get_header(); 
+?>
 	<div class="wrapper">
 	<div class="grids"> 
 	<div class="grid-9 column-4"> 

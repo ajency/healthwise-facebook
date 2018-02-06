@@ -45,83 +45,9 @@ add_action('the_champ_login_user','addPledge',10,4 );
 //not used for now
 function addPledge($userId, $profileData, $socialId, $update)
 {
-  //apply_filters( 'wp_redirect', 'http://localhost:800/healthwise-facebook/?page_id=13#', 301  );
-  //update_user_meta(1,'test',112233);
-  echo '<script type="text/javascript">alert("hello");</script>';
-
   wp_set_current_user($userId, $user -> user_login);
   wp_set_auth_cookie($userId, true);
-
-   /*$js = <<<JS
-   <script type="text/javascript">
-       jQuery('<div />')
-           .html('<p>s <strong>$current_user->user_login</strong><br /><small>(click to close)</small></p>')
-           .css({
-               'width': '300px',
-               'position': 'absolute',
-               'left': '50%',
-               'marginLeft': '-160px',
-               'top': '100px',
-               'backgroundColor': '#cdcdcd',
-               'textAlign': 'center',
-               'padding': '10px'
-           })
-           .appendTo('body')
-           .on('click', function() { jQuery(this).remove(); } );
-           alert('dsds')
-   </script>
-      JS;
-    echo $js;*/
-
-  /*wp_register_script('my_amazing_script', get_template_directory_uri() . '/removeArrows.js', array('jquery'),'1.1', true);
-    wp_enqueue_script('my_amazing_script');
-  */
-  /*global $post;
-   update_user_meta(1,'test123', $post->ID);
-  global $wpdb;
-    $current_user = wp_get_current_user();
-    $user=$current_user->ID;
-    $x=$post;
-    echo "<script>alert(".$user.$x.")</script>";
-    if ($user != 0 && $post!=0) {
-      //if a user is logged in insert him into the database
-       echo "<script>alert('".$user.".".$post."')</script>";
-        $wpdb->insert( 'wp_pledged_users',array(
-        'user_id' => $user,
-        'post_id' => $post)
-        ,array('%d','%d'));
-        $wpdb->show_errors();
-
-      }*/}
-    
-//just to test
-function wpse38285_wp_footer() {
-
-
-   $js = <<<JS
-   <script type="text/javascript">
-       jQuery('<div />')
-           .html('<p>s <strong>$current_user->user_login</strong><br /><small>(click to close)</small></p>')
-           .css({
-               'width': '300px',
-               'position': 'absolute',
-               'left': '50%',
-               'marginLeft': '-160px',
-               'top': '100px',
-               'backgroundColor': '#cdcdcd',
-               'textAlign': 'center',
-               'padding': '10px'
-           })
-           .appendTo('body')
-           .on('click', function() { jQuery(this).remove(); } );
-           alert('dsds')
-   </script>;
-JS;
-   echo $js;
 }
-//add_action( 'wp_footer', 'wpse38285_wp_footer' );
-
-
 
 
 //changed the facebook login button to I PLEDGE
