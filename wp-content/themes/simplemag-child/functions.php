@@ -138,4 +138,10 @@ function my_register_sidebars() {
 /* Repeat the code pattern above for additional sidebars. */
 
 }
+function hello_count($count)
+  {
+     echo "<script>
+     document.getElementById('links').innerHTML = $count+1
+     </script>";
+  }
 ?>

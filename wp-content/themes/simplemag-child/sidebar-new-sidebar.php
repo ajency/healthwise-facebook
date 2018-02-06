@@ -1,4 +1,9 @@
 <?php /* Template Name: pledge-template */ ?>
+<script type="text/javascript">
+	function hello_count($count){
+		alert($count);
+	}
+</script>
 <style type="text/css">
 	.content-area{
 		
@@ -57,6 +62,8 @@
 						'post_id' => $post_id)
 						,array('%d','%d'));
 						$wpdb->show_errors();
+						echo $count;
+						hello_count($count);
 					}
 				}
 		//ending data
