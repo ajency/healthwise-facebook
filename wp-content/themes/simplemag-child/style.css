@@ -11,8 +11,12 @@ Template: simplemag
 /* Your CSS code goes here
 -------------------------------------- */
 .pledge_image{
-	height: 381px;
+	/*height: 381px;*/
+/*	margin-bottom: 150px;*/
 
+}
+.pledge_image_outer{
+		margin-bottom: 150px;
 }
 .content-area{
 		margin-top: 115px;

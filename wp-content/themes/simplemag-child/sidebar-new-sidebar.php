@@ -107,8 +107,10 @@
 
 			<?php
 			while ( $loop->have_posts() ) : $loop->the_post(); 
+				echo "<div class='pledge_image_outer'>";
 				echo "<div class='pledge_image'>";
 				the_post_thumbnail('abc');
+				echo "</div>";
 				echo "</div>";
 				echo( '<h2 class="entry-title">' . the_title_attribute( 'echo=0' ).'</h2>' ); 
 				//echo( '<h2 class="entry-title">' . the_content( 'echo=0' ).'</h2>' ); 
