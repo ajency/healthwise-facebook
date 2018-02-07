@@ -10,3 +10,109 @@ Template: simplemag
 
 /* Your CSS code goes here
 -------------------------------------- */
+.pledge_image{
+	height: 381px;
+
+}
+.content-area{
+		margin-top: 115px;
+		float:right;
+		box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.15);
+		padding:20px;
+		text-align: center;
+		margin-bottom: 20px; 
+
+	}
+	
+	.the_champ_login_container{
+		padding:20px;
+
+	}
+	.btn1{
+	width: 200px;
+	}
+	.test1{
+		/*padding:50px;*/
+		border:  1px solid black;
+	}
+	.test2{
+		margin-top: 150px;
+		border:  1px solid black;
+	}
+	.gridcontentaligne{
+		padding-left: 10px;
+	}
+	.sidebar{
+		border:  0 !important;
+		margin-top: 150px !important;
+		
+		
+	}
+	.count_block{
+		padding-top: 0;
+		line-height: 1;
+		padding-left: 10px;
+		font-size:40px;
+		
+	}
+	.users_image{
+		content: url(image.png);
+		width: 60px;
+	}
+/*	.count_container{
+		padding-bottom: 50px;
+	}
+	*/
+	.x{
+		
+	/*	padding-bottom: 20px;*/
+
+	}
+	.borderall{
+		border: 1px solid black;
+	}
+	.block_data{
+	
+	}
+	.have_pledged{
+		
+		padding-left: 0;
+	}
+
+	@media only screen and (max-width: 687px){
+			.x{
+			
+			padding-bottom: 20px;
+			text-align: center;
+
+		}
+			.count_b{
+			margin-left: 0 !important;
+		}
+			.pledge_done{
+			padding-left: 0!important;
+		}
+			.login_b{
+			margin-left:50px !important;
+		}
+
+	}
+
+.size-abc{
+	height: 230px;
+}
+.loginpledge{
+	padding-left: 50px;
+	padding-bottom: 40px;
+	padding-top: 10px;
+}
+
+.count_b{
+	margin-left: 20px;
+}
+.pledge_done{
+	padding-left: 10px;
+}
+.login_b{
+	margin-left:70px;
+}

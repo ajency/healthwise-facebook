@@ -89,118 +89,7 @@ $single_sidebar = get_post_meta( $post->ID, 'post_sidebar', true );
                     ?>
 
                     
-                    <article class="clearfix single-box entry-content">        
-                        <?php single_main_content(); ?>              
-                    </article><!-- .entry-content -->
-                    
-                    
-                    <?php
-                    // Ad below the content
-                    do_action( 'single_post_below_content_ad' );
-                    ?>
-                    
-                    
-                    <?php
-                    // Post Rating output at the bottom
-                    if ( $ti_option['single_rating_box'] == 'rating_bottom' ) {
-                        if ( get_field( 'enable_rating' ) == true ) {
-                            // Circles style
-                            if ( $ti_option['single_rating_box_style'] == 'rating_circles' ) {
-                                get_template_part( 'inc/single', 'rating' );
-                                
-                            // Bars Style
-                            } else {
-                                get_template_part( 'inc/single', 'rating-bars' );
-                            }
-                        }
-                    }
-                    ?> 
-                    
-                    
-                    <?php
-                    // Show/Hide tags list
-                    if ( $ti_option['single_tags_list'] == 1 ) {
-                        the_tags('<div class="single-box single-tags"><div class="tag-box"><div class="written-by tag-box-title">' . __( 'Tags from the story', 'themetext' ) . '</div>', ', ', '</div></div>');
-                    } 
-                    ?>
-                    
-                    
-                    <?php                        
-                    // Show/Hide share links
-                    if ( $ti_option['single_social'] == 1 ) { ?>
-                    
-                    <?php
-                    // Show Comment icon
-                    if ( comments_open() ) :
-                        $comment_icon = sanitize_html_class( 'show-comment-icon' );
-                    endif;
-                    ?>
-                    
-                    <div class="clearfix single-box single-social <?php echo isset ( $comment_icon ) ? $comment_icon : ''; ?>">
-                    
-                        <?php
-                        // Hide Comment icon
-                        if ( comments_open() ) : ?>
-                        <a href="#comments" class="add-comment">
-                            <span class="score-number">
-                                <?php
-                                // Comments Count
-                                comments_number( '0', '1', '%' ); ?>
-                            </span>
-                        </a>
-                        <?php endif; ?>
-                        
-                        <?php
-                        // share icons
-                        //social_share_icons();
-                        //super socializer share icon
-                        if(is_user_logged_in())
-                        {
-                           echo do_shortcode('[TheChamp-Sharing]');
-                        }
-                        ?>
-
-                    </div>
-                    
-                    <?php } ?>
-                    
-
-                    <?php
-                    // Show/Hide author box
-                    /*if ( $ti_option['single_author'] == 1 ) {
-                        get_template_part( 'inc/author', 'box' );
-                    }*/
-                    ?>
-                    
-
-                    <?php
-                    // Show/Hide related posts
-                    /*if ( $ti_option['single_related'] == 1 ) {
-                        get_template_part( 'inc/related', 'posts' );
-                    }*/
-                    ?>
-                    
-                    
-                    <?php
-                    // Show/Hide Previous Post / Next Post Navigation
-                    /*if ( $ti_option['single_nav_arrows'] == 1 ) {
-                       single_posts_nav();
-                    }*/
-                    ?>
-
-                    <!-- show custom post type pledges -->
-                    <?php
-                    $displayAll = new WP_Query( array(    'post_type' => 'pledge') ); 
-                    while ( $displayAll->have_posts() ) : $displayAll->the_post();
-                        echo "<span>"; 
-                        echo "<div class='pledge_image'>";
-                        the_post_thumbnail('thumbnail');
-                        echo "</div>";
-                        echo '<a href='.get_permalink().'><h2 class="entry-title">'. the_title_attribute( 'echo=0' ).'</h2></a>' ;
-                        echo "</span>"; 
-                     endwhile;
-                    ?>
-                
+                  
 
                     <?php 
                     //comments_template(); // Post Comments ?>        
@@ -215,6 +104,120 @@ $single_sidebar = get_post_meta( $post->ID, 'post_sidebar', true );
                 <?php endif; ?>
                         
                 </div><!-- .grids -->
+                <div>
+                    <article class="clearfix single-box entry-content">        
+                            <?php single_main_content(); ?>              
+                        </article>  <!-- .entry-content -->
+                        
+                        
+                        <?php
+                        // Ad below the content
+                        do_action( 'single_post_below_content_ad' );
+                        ?>
+                        
+                        
+                        <?php
+                        // Post Rating output at the bottom
+                        if ( $ti_option['single_rating_box'] == 'rating_bottom' ) {
+                            if ( get_field( 'enable_rating' ) == true ) {
+                                // Circles style
+                                if ( $ti_option['single_rating_box_style'] == 'rating_circles' ) {
+                                    get_template_part( 'inc/single', 'rating' );
+                                    
+                                // Bars Style
+                                } else {
+                                    get_template_part( 'inc/single', 'rating-bars' );
+                                }
+                            }
+                        }
+                        ?> 
+                        
+                        
+                        <?php
+                        // Show/Hide tags list
+                        if ( $ti_option['single_tags_list'] == 1 ) {
+                            the_tags('<div class="single-box single-tags"><div class="tag-box"><div class="written-by tag-box-title">' . __( 'Tags from the story', 'themetext' ) . '</div>', ', ', '</div></div>');
+                        } 
+                        ?>
+                        
+                        
+                        <?php                        
+                        // Show/Hide share links
+                        if ( $ti_option['single_social'] == 1 ) { ?>
+                        
+                        <?php
+                        // Show Comment icon
+                        if ( comments_open() ) :
+                            $comment_icon = sanitize_html_class( 'show-comment-icon' );
+                        endif;
+                        ?>
+                        
+                        <div class="clearfix single-box single-social <?php echo isset ( $comment_icon ) ? $comment_icon : ''; ?>">
+                        
+                            <?php
+                            // Hide Comment icon
+                            if ( comments_open() ) : ?>
+                            <a href="#comments" class="add-comment">
+                                <span class="score-number">
+                                    <?php
+                                    // Comments Count
+                                    comments_number( '0', '1', '%' ); ?>
+                                </span>
+                            </a>
+                            <?php endif; ?>
+                            
+                            <?php
+                            // share icons
+                            //social_share_icons();
+                            //super socializer share icon
+                            if(is_user_logged_in())
+                            {
+                               echo do_shortcode('[TheChamp-Sharing]');
+                            }
+                            ?>
+
+                        </div>
+                        
+                        <?php } ?>
+                        
+
+                        <?php
+                        // Show/Hide author box
+                        /*if ( $ti_option['single_author'] == 1 ) {
+                            get_template_part( 'inc/author', 'box' );
+                        }*/
+                        ?>
+                        
+
+                        <?php
+                        // Show/Hide related posts
+                        /*if ( $ti_option['single_related'] == 1 ) {
+                            get_template_part( 'inc/related', 'posts' );
+                        }*/
+                        ?>
+                        
+                        
+                        <?php
+                        // Show/Hide Previous Post / Next Post Navigation
+                        /*if ( $ti_option['single_nav_arrows'] == 1 ) {
+                           single_posts_nav();
+                        }*/
+                        ?>
+
+                        <!-- show custom post type pledges -->
+                        <?php
+                        $displayAll = new WP_Query( array(    'post_type' => 'pledge') ); 
+                        while ( $displayAll->have_posts() ) : $displayAll->the_post();
+                            echo "<span>"; 
+                            echo "<div class='pledge_image'>";
+                            the_post_thumbnail('thumbnail');
+                            echo "</div>";
+                            echo '<a href='.get_permalink().'><h2 class="entry-title">'. the_title_attribute( 'echo=0' ).'</h2></a>' ;
+                            echo "</span>"; 
+                         endwhile;
+                        ?>
+                </div>
+
             </div><!-- .wrapper -->
                 
         
@@ -222,6 +225,7 @@ $single_sidebar = get_post_meta( $post->ID, 'post_sidebar', true );
                 
                 
         </div><!-- .post -->
+
             
     <?php endwhile; endif; ?>
 

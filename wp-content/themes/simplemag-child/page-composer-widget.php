@@ -10,18 +10,21 @@ session_start();
 //check if user is logged in and if so show post details 
 if(is_user_logged_in())
 		{
+			if(km_get_user_role(wp_get_current_user()->ID)!="administrator")
+                        {
 			$post_id=$_SESSION['pledge'];
 			$session_post=get_post($post_id);		
 			echo do_shortcode('[TheChamp-Sharing]'); 
-			$url='http://localhost:8080/healthwise-facebook/?pledge='.$session_post->post_name;
-			wp_redirect( $url );
-			exit;
+				 $url=get_site_url().'/?pledge='.$session_post->post_name;
+				wp_redirect( $url );
+				exit;
+			}
 		}
 get_header(); 
 ?>
 	<div class="wrapper">
 	<div class="grids"> 
-	<div class="grid-9 column-4"> 
+	<div class="grid-8 column-4"> 
 	    <section id="content" role="main" class="clearfix anmtd">
 	        
 	        <?php 
@@ -196,7 +199,8 @@ get_header();
 	   
 	    </section>
 	</div>
-    <div class="grid-3 column-2">
+    <div class="grid-4 column-2">
+    	
     	<?php 
 			get_sidebar('new-sidebar'); 
     	 ?>

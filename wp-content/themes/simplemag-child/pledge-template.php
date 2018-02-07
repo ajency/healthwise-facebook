@@ -1,12 +1,12 @@
 <?php /* Template Name: pledge-template */ ?>
-<style type="text/css">
+<!-- <style type="text/css">
 	.content-area{
 	float:right;
 	border:1px solid black;
 	padding : 1%;
 }
 
-</style>
+</style> -->
 <?php 
 session_start();
 get_header();

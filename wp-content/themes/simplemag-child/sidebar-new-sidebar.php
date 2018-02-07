@@ -1,10 +1,5 @@
 <?php /* Template Name: pledge-template */ ?>
-<script type="text/javascript">
-	function hello_count($count){
-		alert($count);
-	}
-</script>
-<style type="text/css">
+<!-- <style type="text/css">
 	.content-area{
 		
 	/*float:right;*/
@@ -15,7 +10,7 @@
 	{
 		max-width: 100px;
 	}
-</style>
+</style> -->
 <div class="wrap">
 
 	<?php 
@@ -23,24 +18,46 @@
 	wp_reset_postdata();
 	if(is_user_logged_in() || !is_front_page())
 	{
-
-
-		echo "<img src='wp-content/themes/simplemag-child/image.png' width='55px'>";
 		$post_id=get_the_ID();
-		echo '<span>';
-
-		echo "<span id='links'>";
 		$count= $wpdb->get_var(
 		"SELECT count(post_id) FROM pledged_users
 		WHERE post_id = ".$post_id
 		);
-		echo $count;
-		echo "</span>";
-		echo "<br>Have already taken pledge";
-		echo "</span>";
+
+		echo "<div class='grids x'>";
+			echo "<div class='grid-2 column-1'>";
+				echo "<span class='users_image'> ";
+	
+				echo "</span>";
+			echo "</div>";
+			echo "<div class='grid-8 column-2 count_b'>";
+				echo "<span id='links' class='count_block'>";
+					echo $count;
+
+				echo "</span><br/>";
+				echo "<span class='pledge_done'>Have already taken pledge</span>";
+
+			echo "</div>";
+		echo "</div>";
+		
+		
+		// echo '<span>';
+
+		// echo "<span id='links'>";
+		
+		// echo "<span class='count_block'>";
+			// echo $count;
+		// echo "</span>";
+
+		// echo "</span><br/>";
+		// echo "<span class='have_pledged'>You have already taken pledge</span>";
+		// echo "</span>";
+
 		if(!is_user_logged_in())
             {
-               echo do_shortcode('[TheChamp-Login]');
+               echo"<div class='login_b'>";
+               	echo do_shortcode('[TheChamp-Login]');
+               echo"</div>";
             }
             else
             {
@@ -69,7 +86,7 @@
 		//ending data
 			}
 
-
+		
 	} 
 	else
 	{
@@ -91,15 +108,15 @@
 			<?php
 			while ( $loop->have_posts() ) : $loop->the_post(); 
 				echo "<div class='pledge_image'>";
-				the_post_thumbnail('thumbnail');
+				the_post_thumbnail('abc');
 				echo "</div>";
 				echo( '<h2 class="entry-title">' . the_title_attribute( 'echo=0' ).'</h2>' ); 
 				//echo( '<h2 class="entry-title">' . the_content( 'echo=0' ).'</h2>' ); 
 				$excerpt=get_the_excerpt();
 				echo $excerpt;
 				?>
-				<a href=<?php the_permalink(); ?>>Read more</a>
-				<div id="login">
+				<a href=<?php the_permalink(); ?>><br/>Read more</a>
+				<div id="login" class="loginpledge">
 
 					<!-- function on login -->
 					<?php 

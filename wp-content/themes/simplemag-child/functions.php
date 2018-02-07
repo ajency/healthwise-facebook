@@ -12,6 +12,7 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+   
 }
 //creating a custom post pledge
 function create_post_type() {
@@ -36,6 +37,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_parent_styles' );
 
 function enqueue_parent_styles() {
    wp_enqueue_style( 'parent-style', get_template_directory_uri().'/style.css' );
+
 }
 
 
@@ -140,8 +142,13 @@ function my_register_sidebars() {
 }
 function hello_count($count)
   {
-     echo "<script>
-     document.getElementById('links').innerHTML = $count+1
-     </script>";
+    echo "<script>
+    document.getElementById('links').innerHTML = $count+1
+    </script>";
   }
-?>
+
+  
+  function km_get_user_role( $user = null ) {
+  $user = $user ? new WP_User( $user ) : wp_get_current_user();
+  return $user->roles ? $user->roles[0] : false;
+}
