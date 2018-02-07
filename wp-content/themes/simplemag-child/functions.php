@@ -144,4 +144,8 @@ function hello_count($count)
      document.getElementById('links').innerHTML = $count+1
      </script>";
   }
-?>
+
+  function km_get_user_role( $user = null ) {
+  $user = $user ? new WP_User( $user ) : wp_get_current_user();
+  return $user->roles ? $user->roles[0] : false;
+}
