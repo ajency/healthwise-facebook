@@ -114,8 +114,16 @@
 				echo "</div>";
 				echo "</div>";
 				$data=get_the_category($post->ID);
-				for ($i=0;!empty($data[$i]);$i++) {
-				echo("<h4>".$data[$i]->name."</h4>");
+				if (empty($data[0])) {
+					echo("<span class='text-grey'>Uncategorized</span>");
+				}
+				else
+				{
+					for ($i=0;!empty($data[$i]);$i++) {
+						if($i>0)
+							echo "<span class='text-grey'>,</span>";
+					echo("<span class='text-grey'>".$data[$i]->name."</span>");
+					}
 				}
 				echo"<span class='text-grey'>";
 				echo "/".get_the_date();
