@@ -53,12 +53,12 @@
 		// echo "<span class='have_pledged'>You have already taken pledge</span>";
 		// echo "</span>";
 
-		if(!is_user_logged_in())
-            {
-               echo"<div class='login_b'>";
-               	echo do_shortcode('[TheChamp-Login]');
-               echo"</div>";
-            }
+		if(!is_user_logged_in() || km_get_user_role(wp_get_current_user()->ID)=="administrator")
+           {
+              echo"<div class='login_b'>";
+              echo do_shortcode('[TheChamp-Login]');
+              echo"</div>";
+           }
             else
             {
 		// adding data
@@ -79,7 +79,7 @@
 						'post_id' => $post_id)
 						,array('%d','%d'));
 						$wpdb->show_errors();
-						echo $count;
+						//echo $count;
 						hello_count($count);
 					}
 				}
@@ -109,19 +109,34 @@
 			while ( $loop->have_posts() ) : $loop->the_post(); 
 				echo "<div class='pledge_image_outer'>";
 				echo "<div class='pledge_image'>";
+
 				the_post_thumbnail('abc');
 				echo "</div>";
 				echo "</div>";
-				echo( '<h2 class="entry-title">' . the_title_attribute( 'echo=0' ).'</h2>' ); 
-				//echo( '<h2 class="entry-title">' . the_content( 'echo=0' ).'</h2>' ); 
+				$data=get_the_category($post->ID);
+				for ($i=0;!empty($data[$i]);$i++) {
+				echo("<h4>".$data[$i]->name."</h4>");
+				}
+				echo"<span class='text-grey'>";
+				echo "/".get_the_date();
+				echo "</span>";
+				echo( '<h2 class="entry-title ptop1 text-black">' . the_title_attribute( 'echo=0' ).'</h2>' ); 
+				echo( '<span class="written-by ">by </span><span class="entry-author">' . get_the_author().'</span><br/><br/>' );  
 				$excerpt=get_the_excerpt();
 				echo $excerpt;
 				?>
+
 				<a href=<?php the_permalink(); ?>><br/>Read more</a>
+
 				<div id="login" class="loginpledge">
+
 
 					<!-- function on login -->
 					<?php 
+
+
+
+
 					$title=the_title_attribute( 'echo=0' );
 					//*****
 					$page=get_page_by_title( $title, '', 'pledge' );

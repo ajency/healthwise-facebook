@@ -177,6 +177,8 @@ $single_sidebar = get_post_meta( $post->ID, 'post_sidebar', true );
                             ?>
 
                         </div>
+                       <!--  <div class="text-grey">You may also want to pledge for</div>
+                        <hr> -->
                         
                         <?php } ?>
                         
@@ -206,15 +208,7 @@ $single_sidebar = get_post_meta( $post->ID, 'post_sidebar', true );
 
                         <!-- show custom post type pledges -->
                         <?php
-                        $displayAll = new WP_Query( array(    'post_type' => 'pledge') ); 
-                        while ( $displayAll->have_posts() ) : $displayAll->the_post();
-                            echo "<span>"; 
-                            echo "<div class='pledge_image'>";
-                            the_post_thumbnail('thumbnail');
-                            echo "</div>";
-                            echo '<a href='.get_permalink().'><h2 class="entry-title">'. the_title_attribute( 'echo=0' ).'</h2></a>' ;
-                            echo "</span>"; 
-                         endwhile;
+                          get_template_part ( 'custom', 'carousel' );
                         ?>
                 </div>
 
