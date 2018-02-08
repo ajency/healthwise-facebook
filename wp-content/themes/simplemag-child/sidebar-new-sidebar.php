@@ -121,7 +121,7 @@
 				{
 					for ($i=0;!empty($data[$i]);$i++) {
 						if($i>0)
-							echo "<span class='text-grey'>,</span>";
+							echo "<span class='text-grey'> , </span>";
 					echo("<span class='text-grey'>".$data[$i]->name."</span>");
 					}
 				}

@@ -29,7 +29,7 @@
         <div class="text-grey">You may also want to pledge for</div>
             <hr>
     
-        <div class="gallery-carousel global-sliders1 content-over-image1 ptop">
+        <div class="gallery-carousel global-sliders1 content-over-image ptop">
             
             <?php while ( $ti_posts_carousel->have_posts() ) : $ti_posts_carousel->the_post(); ?>
             
@@ -42,31 +42,39 @@
                             } ?>
                         </figure>
                     </div>
-    				<header class="entry-header">
-                        <a class="entry-link" href="<?php the_permalink(); ?>"></a>
-                        <div class="inner">
-                            <div class="inner-cell">
-                                <div class="entry-meta black-text">
-                                    <h2 class="entry-titlex ">
-                                        <a class="black-text" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                    </h2>
-                                </div>
-                              <!--   <h2 class="entry-titlex text-grey textcenter">
-                                    
-                                     <?php /*$data=get_the_category($post->ID);
-                                            if (empty($data[0])) {
-                                                echo("Uncategorized");
-                                            }
-                                            else
-                                            {
-                                                for ($i=0;!empty($data[$i]);$i++) {
-                                                echo($data[$i]->name);
-                                                }
-                                            }*/ ?>
-                                </h2> -->
-                            </div>
-                        </div>
-                    </header>
+    				
+                    <header class="entry-header">
+                       <a class="entry-link" href="<?php the_permalink(); ?>"></a>
+                       <div class="inner">
+                           <div class="inner-cell">
+                               <div class="entry-meta black-text">
+                                   <span class="entry-titlex black-text">
+                                 <!--   <?php 
+                                    /*$data=get_the_category($post->ID);
+                                    if (empty($data[0])) {
+                                        echo("<span class='text-grey'>Uncategorized</span>");
+                                    }
+                                    else
+                                    {
+                                        for ($i=0;!empty($data[$i]);$i++) {
+                                            if($i>0)
+                                                echo "<span class='text-grey'> , </span>";
+                                        echo("<span class='text-grey'>".$data[$i]->name."</span>");
+                                        }
+                                    }*/
+                                   ?> -->
+                                   </span>
+                               </div>
+                               <h2 class="entry-titlex black-text">
+                                 <!--   <a class="black-text" href="<?php //the_permalink(); ?>"><?php //the_title(); ?></a> -->
+                                  
+                               </h2>
+                           </div>
+                       </div>
+                   </header>
+                    <h2 class="entry-titlex black-text nodec">
+                        <a class="black-text nodec" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    </h2>
                 </div>
             
             

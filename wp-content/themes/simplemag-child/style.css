@@ -253,3 +253,7 @@ hr{
 .textcenter{
 	text-align: center;
 }
+.nodec{
+margin-top: 20px;
+text-decoration: none;
+}
